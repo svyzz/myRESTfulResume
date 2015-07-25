@@ -13,8 +13,8 @@ class GitHub(Resource):
         This method makes a call to the standard GitHub API and simply
         forwards the response through.
 
-        Attempting to return a '504 - Gateway Timeout' on 
-        either a connectino or timeout error!
+        Attempting to return a '504 - Gateway Timeout' on
+        either a connection or timeout error!
         """
         try:
             response = requests.get('https://api.github.com/users/svyzz').json()
