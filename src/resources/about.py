@@ -1,17 +1,27 @@
-from flask.ext.restful import Resource
+from flask.ext.restful import Resource, abort
 from flask import jsonify
 
 
 class About(Resource):
 	
 	def get(self):
-		return jsonify({'days/units' : 'm days and n units'})
+		return jsonify({
+			'about' : 'a feeble attempt at making my resume RESTful',
+			'endpoints' : '/education, /github, /work, /contact',
+			'suggestions and critiques' : 'please drop me a line on GitHub'
+			})
+
 
 	def post(self, **kwargs):
+		"""
+    	Exit with a 405 since this method is disallowed for this resource
+		"""
 		abort(405)
+
 
 	def put(self, **kwargs):
 		abort(405)
+
 
 	def delete(self, **kwargs):
 		abort(405)
