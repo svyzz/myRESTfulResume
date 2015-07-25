@@ -50,16 +50,22 @@ organizations = [
 
 class OrganizationList(Resource):
     """
-    This class describes my work experience and since I have worked
+    This class describes my work experience AND since I have worked
     for more than one company AND since I don't intend to move this into a UI,
     this is perhaps the right opportunity to adhere to *some* HATEOAS
     """
 
     def get(self):
+        """
+        This verb returns all of the ID's for the organizations that
+        I have worked for so far.
+
+        Sanitizing the output could have been managed better, but it's an array!
+        """
         return {
             'organizations' : [organization['id'] for organization in organizations],
             'addendum' : 'HATEOAS. Yay!',
-            'usage' : '/organization/<organization ID> for more details'
+            'details' : '/organization/<organization ID> for more details'
         }
 
 
@@ -81,17 +87,30 @@ class OrganizationList(Resource):
 class Organizations(Resource):
     """
     This class manages how individual endpoints that correspond to
-    each of the organizations behave
+    each of the organizations behave when the ID of the organization
+    (see documentation for the OrganizationList class above) are
+    supplied as parameters
     """
 
     def get(self, org_id):
-        details = next((organization for organization in organizations if organization['id'] == org_id), None)
-        if details == None:
+        """
+        This verb accepts the organization ID (obtained from a call
+        made to /work) and returns details specific to that particular
+        organization/work-experience
+
+        This aborts with a 400 if the generator function returns nothing!
+        Case sensitivity for parameters are also no longer an issue.
+        """
+        details = next((organization for organization in organizations if organization['id'].lower() == org_id.lower()), None)
+        if details is None:
             abort(400)
         return details
 
 
     def post(self, **kwargs):
+        """
+        Exit with a 405 since this method is disallowed for this resource
+        """
         abort(405)
 
 
