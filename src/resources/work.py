@@ -62,11 +62,11 @@ class OrganizationList(Resource):
 
         Sanitizing the output could have been managed better, but it's an array!
         """
-        return {
+        return jsonify({
             'organizations' : [organization['id'] for organization in organizations],
             'addendum' : 'HATEOAS. Yay!',
             'details' : '/organization/<organization ID> for more details'
-        }
+        })
 
 
     def post(self, **kwargs):
@@ -104,7 +104,7 @@ class Organizations(Resource):
         details = next((organization for organization in organizations if organization['id'].lower() == org_id.lower()), None)
         if details is None:
             abort(400)
-        return details
+        return jsonify(details)
 
 
     def post(self, **kwargs):
