@@ -3,7 +3,7 @@ from flask.ext import restful
 from resources.about import About
 from resources.education import Education
 from resources.projects import GitHub
-from resources.work import Work
+from resources.work import OrganizationList, Organizations
 from resources.contact import Contact
 
 
@@ -19,7 +19,8 @@ routes and resources and configures our API
 api.add_resource(About, '/', '/about')
 api.add_resource(Education, '/education')
 api.add_resource(GitHub, '/github')
-api.add_resource(Work, '/work')
+api.add_resource(OrganizationList, '/work')
+api.add_resource(Organizations, '/work/<string:org_id>')
 api.add_resource(Contact, '/contact')
 
 """
