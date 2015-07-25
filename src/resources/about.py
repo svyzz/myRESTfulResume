@@ -5,6 +5,7 @@ from flask import jsonify
 class About(Resource):
     """
     This class describes what this effort is all about!
+    It also lists all of the RESTful endpoints
     """
 
     def get(self):
