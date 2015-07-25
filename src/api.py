@@ -12,7 +12,7 @@ api = restful.Api(app)
 
 
 """
-Each of the individual resources go here
+Each of the individual resources go here;
 This gives us a comprehensive list of all of the
 routes and resources and configures our API
 """
@@ -24,9 +24,7 @@ api.add_resource(Contact, '/contact')
 
 """
 Run this app in debug mode so that it automatically
-restarts after every code change
-and prints useful messages for us!
-This is *NEVER* going to production anyways :D
+restarts after every code change and prints useful messages for us!
 """
 if __name__ == '__main__':
     app.run(debug=True)
