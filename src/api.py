@@ -10,15 +10,23 @@ from resources.contact import Contact
 app = Flask(__name__)
 api = restful.Api(app)
 
-# Each of the individual resources go here
-# This gives us a comprehensive list of all routes and resources and configures our API
+
+"""
+Each of the individual resources go here
+This gives us a comprehensive list of all of the
+routes and resources and configures our API
+"""
 api.add_resource(About, '/', '/about')
 api.add_resource(Education, '/education')
 api.add_resource(GitHub, '/github')
 api.add_resource(Work, '/work')
 api.add_resource(Contact, '/contact')
 
-# Run the app in debug mode so it automatically restarts after every code change and prints useful messages!
-# This is *NEVER* going to production anyways :D
+"""
+Run this app in debug mode so that it automatically
+restarts after every code change
+and prints useful messages for us!
+This is *NEVER* going to production anyways :D
+"""
 if __name__ == '__main__':
     app.run(debug=True)
