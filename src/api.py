@@ -16,12 +16,12 @@ Each of the individual resources go here;
 This gives us a comprehensive list of all of the routes and 
 resources and consequently configures our API
 """
-api.add_resource(About, '/', '/about')
-api.add_resource(Education, '/education')
-api.add_resource(GitHub, '/github')
-api.add_resource(OrganizationList, '/work')
-api.add_resource(Organizations, '/work/<string:org_id>')
-api.add_resource(Contact, '/contact')
+api.add_resource(About, '/', '/api','/api/about')
+api.add_resource(Education, '/api/education')
+api.add_resource(GitHub, '/api/github')
+api.add_resource(OrganizationList, '/api/work')
+api.add_resource(Organizations, '/api/work/<string:org_id>')
+api.add_resource(Contact, '/api/contact')
 
 """
 Run this app in debug mode so that it automatically
