@@ -3,7 +3,11 @@ from flask import jsonify
 
 
 class Contact(Resource):
-
+    """
+    This class contains my contact and location details
+    and a rider asking for my resume if you really want to get in touch!
+    """
+    
     def get(self):
         return jsonify({
             'email' : '<Ask me for my resume!>',
