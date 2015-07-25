@@ -13,8 +13,8 @@ api = restful.Api(app)
 
 """
 Each of the individual resources go here;
-This gives us a comprehensive list of all of the
-routes and resources and configures our API
+This gives us a comprehensive list of all of the routes and 
+resources and consequently configures our API
 """
 api.add_resource(About, '/', '/about')
 api.add_resource(Education, '/education')
