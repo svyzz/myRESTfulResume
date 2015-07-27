@@ -11,6 +11,7 @@ class About(Resource):
     def get(self):
         return jsonify({
             'about' : 'a feeble attempt at making my resume RESTful',
+            'base_URL' : 'https://svyzz.herokuapp.com/api'
             'endpoints' : '/education, /github, /work, /contact',
             'suggestions and critiques' : 'please drop me a line on GitHub'
         })
