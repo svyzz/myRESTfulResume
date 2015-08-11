@@ -21,7 +21,7 @@ class GitHub(Resource):
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout):
             abort(504)
 
-        return response
+        return jsonify(response)
 
 
     def post(self, **kwargs):
