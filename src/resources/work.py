@@ -65,7 +65,7 @@ class OrganizationList(Resource):
         return jsonify({
             'organizations' : [organization['id'] for organization in organizations],
             'addendum' : 'HATEOAS. Yay!',
-            'details' : '/organization/<organization ID> for more details'
+            'details' : '/work/<organization ID> for more details'
         })
 
 
